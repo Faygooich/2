@@ -111,6 +111,13 @@ const RND_FILES = [
   'sym_sound_04.mp3','sym_sound_05.mp3','sym_sound_06.mp3',
   'sym_sound_07.mp3'
 ];
+const RND_FILES_1 = [
+  'sym_sound_01.mp3','sym_sound_02.mp3','sym_sound_05.mp3'
+];
+const RND_FILES_2 = [
+  'sym_sound_03.mp3','sym_sound_04.mp3','sym_sound_06.mp3',
+  'sym_sound_07.mp3'
+];
 const GLITCH_ABC = '!@#$%&*абвгдеж0123456789░▒▓╬═╪▄▀■□±§~^';
 
 const POOL      = {};
@@ -185,6 +192,12 @@ function plingMode(mode) {
     pling(f, 0.35 + Math.random() * 2.05);
   } else if (mode === '03') {
     pling('sym_sound_03.mp3');
+  } else if (mode === '04') {
+    const f = RND_FILES_1[Math.random() * RND_FILES_1.length | 0];
+    pling(f, 1 + (Math.random() * 0.2 - 0.1));
+  } else if (mode === '05') {
+    const f = RND_FILES_2[Math.random() * RND_FILES_2.length | 0];
+    pling(f, 1 + (Math.random() * 0.2 - 0.1));
   } else {
     const f = RND_FILES[Math.random() * RND_FILES.length | 0];
     pling(f, 1 + (Math.random() * 0.2 - 0.1));
@@ -198,40 +211,28 @@ function plingMode(mode) {
 ══════════════════════════════════════════ */
 const SCRIPT = [
   { t:'L', x:'...',                                                         m:'00', speed:100  },
-  { t:'L', x:'темно.',                                                         m:'00', speed:100  },
-  { t:'L', x:'вы слышите, как где-то рядом падают капли воды',                                                         m:'00', speed:90  },
-  { t:'L', x:'...',                                                         m:'00', speed:100  },
-  { t:'L', x:'кап',                                                         m:'00', speed:250 },
-  { t:'L', x:'кап-кап-кап',                                                         m:'00', speed:150},
-  { t:'L', x:'кап-кап-кап-кап-кап :^',                                                         m:'rnd', speed:5  },
-  { t:'L', x:'кыц-кц-кц-кц-кц',                                                         m:'rnd', speed:30  },
-  { t:'L', x:'вы чувствуете, как вас коснулось что-то пушистое',                                                         m:'00', speed:50  },
-  { t:'L', x:'ты пахнешь светом',                                                         m:'rnd', speed:50  },
-  { t:'L', x:'...',                                                         m:'rnd', speed:250  },
-  { t:'L', x:'отвратительный запах..',                                                         m:'rnd', speed:80  },
-  { t:'L', x:'на воле всюду этот запах',                                                         m:'rnd', speed:60  },
-  { t:'L', x:'невыносимая вонь',                                                         m:'rnd', speed:60  },
-  { t:'L', x:'я безумно счастлив, что более не ощущаю этой вони',                                                         m:'rnd', speed:60  },
-  { t:'L', x:'но ты ведь помнишь про наш с тобой план? ::^)',                                                         m:'rnd', speed:60  },
-  { t:'L', x:'я вернусь домой',                                                         m:'rnd', speed:60  },
-  { t:'L', x:'нужно вернуться и избавить дом от этой вони..',                                                         m:'rnd', speed:60  },
-  { t:'L', x:'я вернусь домой',                                                         m:'rnd', speed:60  },
-  { t:'L', x:'СЛЫШИШЬ?',                                                         m:'rnd', speed:10  },
-  { t:'L', x:'кыц-кц-кц-кц-кц',                                                         m:'rnd', speed:30  },
-  { t:'L', x:'Я уверен, ты слышишь',                                                         m:'rnd', speed:60  },
-  { t:'L', x:'кыц-кц-кц-кц-кц-кц-кц-кц-кц-кц-кц',                                                         m:'rnd', speed:30  },
-  { t:'L', x:'даймон',                                                         m:'rnd', speed:100},
-  { t:'L', x:'проводник..',                                                         m:'rnd', speed:100, G:true  },
-  { t:'L', x:'я стану твоим затмением, даймон',                                                         m:'rnd', speed:50  },
-  { t:'L', x:'затмение избавит наш мир от светлой вони',                                                         m:'rnd', speed:60  },
-  { t:'L', x:'кыц-кц-кц',                                                         m:'rnd', speed:30  },
-  { t:'L', x:'мы еще встретимся..',                                                         m:'rnd', speed:60  },
-  { t:'L', x:'мы еще поговорим',                                                         m:'rnd', speed:80  },
-  { t:'L', x:'мы будем ждать тебя :::^)',                                                         m:'rnd', speed:60  },
-  { t:'L', x:'светлый',                                                         m:'rnd', speed:150, G:true  },
+  { t:'L', x:'..Темно?',                                                         m:'00', speed:100  },
+  { t:'L', x:'Вы сидите на чем-то мягком',                                                         m:'00', speed:100  },
+  { t:'L', x:'О-ЛЯ-ЛЯ! Вспышки света! Фанфары в студию! Мой угрюмый, колючий, вечно недовольный генерал, ты только ПОСМОТРИ! У нас гости! Прямо в партере! Неси цветы, неси конфетти, неси СЕБЯ! :^0',                                                         m:'04', speed:60, double:2},
+  { t:'L', x:'Че? Ты дегенерат?',                                                         m:'05', speed:90  },
+  { t:'L', x:'Полагаю, тебе тут скучно! Но не бойся, мы тебя заждались! Мы репетировали! Мы полировали каждый жест!',                                                         m:'04', speed:60, double:1  },
+  { t:'L', x:'Хе, очень уж...',                                                         m:'05', speed:90  },
+  { t:'L', x:'Друже! Не груби гостю!',                                                         m:'04', speed:60, double:2  },
+  { t:'L', x:'Да иди ты нахер',                                                         m:'05', speed:90  },
+  { t:'L', x:'Какой срам!',                                                         m:'04', speed:60, double:1  },
+  { t:'L', x:'...',                                                         m:'05', speed:100  },
+  { t:'L', x:'Извините моего товарища, о достопочтенный! Вы - мой первый зритель за много лет!!!',                                                         m:'04', speed:60},
+  { t:'L', x:'Я так соскучился по публике :^)',                                                         m:'04', speed:60, double:1  },
+  { t:'L', x:'Бла-бла-бла',                                                         m:'05', speed:60  },
+  { t:'L', x:'Годы!! Г-О-Д-Ы одинокого заточения в этой яме сводили меня с ума!',                                                         m:'04', speed:60, double:2  },
+  { t:'L', x:'Ну хоть в чем-то мы согласны',                                                         m:'05', speed:90  },
+  { t:'L', x:'Хотите ли вы узреть мое выступление? Ох, конечно же вы хотите! Занавес поднимается :^0!',                                                         m:'04', speed:60, double:1  },
+  { t:'L', x:'Ахахахаха',                                                         m:'05', speed:60  },
+  { t:'L', x:'Я расскажу вам историю! Великую драму о том, как доблестного рыцаря в черных доспехах поймал в ловушку злой белый змей- ',                                                         m:'04', speed:60},
   { t:'L', x:'ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ-ДЗЫЫНЬЬЬ-ДЗЫЫЫЫЫЫЫЫНЬЬЬЬ-ДЗЫЫНЬ',                                                 m:'03', speed:80 },
   { t:'E' }
 ];
+
 
 /* ══════════════════════════════════════════
    DOM REFS
@@ -253,6 +254,8 @@ let fullTxt = '';      // full text of current line (for skip)
 let gSpans  = null;    // glitch character spans
 let gChars  = null;    // glitch character array
 let spinF   = 0;
+let doubleState = null;  // tracks active double-line mode { mode, phase, ... }
+let advanceBy   = 1;     // how many si++ on next advance
 const SPINS       = ['|', '/', '-', '\\'];
 const GLITCH_EXCL = new Set(['?']);   // characters that do NOT glitch
 
@@ -397,6 +400,17 @@ function doTypeGlitch(text, mode, ms) {
 ══════════════════════════════════════════ */
 function skipTyping() {
   if (!typing) return;
+
+  /* ── double-mode skip ── */
+  if (doubleState) {
+    if (doubleState.mode === 2) {
+      if (doubleState.phase === 1) { doubleState.skip1(); return; }
+      else                         { doubleState.skip2(); return; }
+    } else if (doubleState.mode === 1) {
+      doubleState.skipAll(); return;
+    }
+  }
+
   clearTimeout(tTmr);
   tTmr   = null;
   typing = false;
@@ -569,6 +583,147 @@ function doEnd() {
 }
 
 /* ══════════════════════════════════════════
+   DOUBLE:2 — type line1, keep it, type line2 below
+══════════════════════════════════════════ */
+function doTypeDouble2(e1, e2) {
+  clearAll();
+  advanceBy   = 2;
+  doubleState = { mode: 2, phase: 1, e1, e2 };
+  typing  = true;
+  canAdv  = false;
+  fullTxt = e1.x;
+
+  const cur = mkCur();
+  $out.appendChild(cur);
+  let i = 0;
+
+  function startPhase2() {
+    doubleState.phase = 2;
+    fullTxt = e2.x;
+
+    // freeze line1: remove cursor, add newline
+    if (cur.parentNode) cur.remove();
+    $out.appendChild(document.createElement('br'));
+
+    const cur2 = mkCur();
+    $out.appendChild(cur2);
+    let j = 0;
+
+    doubleState.skip2 = () => {
+      clearTimeout(tTmr); tTmr = null;
+      if (cur2.parentNode) cur2.remove();
+      $out.appendChild(document.createTextNode(e2.x.slice(j)));
+      $out.appendChild(mkCur());
+      typing = false; canAdv = true; doubleState = null;
+    };
+
+    const step2 = () => {
+      if (j >= e2.x.length) {
+        typing = false; canAdv = true; doubleState = null; return;
+      }
+      const ch = e2.x[j++];
+      const sp = document.createElement('span');
+      sp.textContent = ch;
+      $out.insertBefore(sp, cur2);
+      if (ch !== ' ') plingMode(e2.m);
+      tTmr = setTimeout(step2, e2.speed);
+    };
+    step2();
+  }
+
+  doubleState.skip1 = () => {
+    clearTimeout(tTmr); tTmr = null;
+    if (cur.parentNode) cur.remove();
+    $out.appendChild(document.createTextNode(e1.x.slice(i)));
+    i = e1.x.length;
+    startPhase2();
+  };
+
+  const step1 = () => {
+    if (i >= e1.x.length) { startPhase2(); return; }
+    const ch = e1.x[i++];
+    const sp = document.createElement('span');
+    sp.textContent = ch;
+    $out.insertBefore(sp, cur);
+    if (ch !== ' ') plingMode(e1.m);
+    tTmr = setTimeout(step1, e1.speed);
+  };
+  step1();
+}
+
+/* ══════════════════════════════════════════
+   DOUBLE:1 — type line1 and line2 simultaneously
+══════════════════════════════════════════ */
+function doTypeDouble1(e1, e2) {
+  clearAll();
+  advanceBy   = 2;
+  doubleState = { mode: 1, done1: false, done2: false, e1, e2 };
+  typing  = true;
+  canAdv  = false;
+  fullTxt = e1.x;
+
+  const line1 = document.createElement('div');
+  $out.appendChild(line1);
+  const cur1 = mkCur();
+  line1.appendChild(cur1);
+
+  const line2 = document.createElement('div');
+  $out.appendChild(line2);
+  const cur2 = mkCur();
+  line2.appendChild(cur2);
+
+  let i = 0, j = 0;
+  let tmr1 = null, tmr2 = null;
+
+  function checkDone() {
+    if (doubleState && doubleState.done1 && doubleState.done2) {
+      typing = false; canAdv = true; doubleState = null;
+    }
+  }
+
+  doubleState.skipAll = () => {
+    clearTimeout(tmr1); clearTimeout(tmr2);
+    line1.innerHTML = '';
+    line1.appendChild(document.createTextNode(e1.x));
+    line2.innerHTML = '';
+    line2.appendChild(document.createTextNode(e2.x));
+    line2.appendChild(mkCur());
+    typing = false; canAdv = true; doubleState = null;
+  };
+
+  const step1 = () => {
+    if (i >= e1.x.length) {
+      if (cur1.parentNode) cur1.remove();
+      if (doubleState) doubleState.done1 = true;
+      checkDone(); return;
+    }
+    const ch = e1.x[i++];
+    const sp = document.createElement('span');
+    sp.textContent = ch;
+    line1.insertBefore(sp, cur1);
+    if (ch !== ' ') plingMode(e1.m);
+    tmr1 = setTimeout(step1, e1.speed);
+  };
+
+  const step2 = () => {
+    if (j >= e2.x.length) {
+      if (cur2.parentNode) cur2.remove();
+      if (doubleState) doubleState.done2 = true;
+      checkDone(); return;
+    }
+    const ch = e2.x[j++];
+    const sp = document.createElement('span');
+    sp.textContent = ch;
+    line2.insertBefore(sp, cur2);
+    if (ch !== ' ') plingMode(e2.m);
+    tmr2 = setTimeout(step2, e2.speed);
+  };
+
+  step1();
+  step2();
+}
+
+/* ══════════════════════════════════════════
    RUN — dispatch current script entry
 ══════════════════════════════════════════ */
 function run() {
@@ -582,7 +737,11 @@ function run() {
   if (e.t === 'L') {
 	
     const ms = e.speed;
-    if      (e.G)    doTypeGlitch(e.x, e.m, ms);
+    if (e.double && si + 1 < SCRIPT.length && SCRIPT[si + 1].t === 'L') {
+      const e2 = SCRIPT[si + 1];
+      if      (e.double === 1) doTypeDouble1(e, e2);
+      else if (e.double === 2) doTypeDouble2(e, e2);
+    } else if (e.G)    doTypeGlitch(e.x, e.m, ms);
     else if (e.spin) doType(e.x, e.m, ms, () => { startSpinner(); });
     else             doType(e.x, e.m, ms);
 
@@ -601,7 +760,7 @@ function run() {
 function handleClick() {
   if (blocked) return;
   if (typing)      skipTyping();
-  else if (canAdv) { canAdv = false; si++; run(); }
+  else if (canAdv) { canAdv = false; si += advanceBy; advanceBy = 1; run(); }
 }
 
 /* ══════════════════════════════════════════
